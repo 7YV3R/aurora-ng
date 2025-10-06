@@ -32,7 +32,7 @@ dnf5 install -y \
     slurp \
     swayimg \
     swappy \
-    swaynotificationcenter \
+    SwayNotificationCenter \
     wofi \
     waybar \
     wl-clipboard \
