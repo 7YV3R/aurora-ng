@@ -44,14 +44,13 @@ dnf5 install -y \
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
-dnf5 copr enable solopasha/hyprland
-dnf5 makecache
+dnf5 -y copr enable solopasha/hyprland
 dnf5 install -y \
     hyprland \
     hyprlock \
     hyprshot \
     swww
-dnf5 copr disable solopasha/hyprland 
+dnf5 -y copr disable solopasha/hyprland 
 
 #### Example for enabling a System Unit File
 
