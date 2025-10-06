@@ -44,7 +44,8 @@ dnf5 install -y \
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
-dnf5 copr enable solopasha/hyprland 
+dnf5 copr enable solopasha/hyprland
+dnf5 makecache
 dnf5 install -y \
     hyprland \
     hyprlock \
