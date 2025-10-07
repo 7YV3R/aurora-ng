@@ -7,6 +7,12 @@ set -ouex pipefail
 # install prepared system files
 rsync -rvK /ctx/system_files/ /
 
+# ublue-os packages
+dnf5 -y copr enable ublue-os/packages
+
+# Podman-bootc
+dnf5 -y copr enable gmaglione/podman-bootc
+
 # install dev tools packages
 dnf5 install -y \
 	android-tools \
@@ -49,3 +55,8 @@ dnf5 install -y \
 	virt-manager \
 	virt-v2v \
 	virt-viewer 
+
+
+#disable copr packages
+dnf5 -y copr disable ublue-os/packages
+dnf5 -y copr disable gmaglione/podman-bootc
