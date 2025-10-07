@@ -6,6 +6,8 @@ set -ouex pipefail
 
 # enable hyprland copr
 dnf5 -y copr enable solopasha/hyprland
+
+# install hyprland packages
 dnf5 install -y \
     alacritty \
     alsa-utils \

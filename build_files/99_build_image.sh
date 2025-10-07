@@ -4,8 +4,6 @@ set -ouex pipefail
 
 ### Install packages
 
-chmod +x /ctx/*.sh
-
 # install hyprland
 /ctx/05_install_hyprland.sh
 
