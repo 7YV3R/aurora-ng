@@ -4,6 +4,9 @@ set -ouex pipefail
 
 ### Install custom development environment
 
+# install prepared system files
+rsync -rvK /ctx/system_files/ /
+
 # install dev tools packages
 dnf5 install -y \
 	android-tools \
