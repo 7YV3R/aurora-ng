@@ -2,6 +2,7 @@
 FROM scratch AS ctx
 COPY build_files /
 COPY repo_files /repo_files
+COPY dotconfig_files /dotconfig_files
 
 # define base image
 FROM ghcr.io/ublue-os/aurora-asus-nvidia:latest

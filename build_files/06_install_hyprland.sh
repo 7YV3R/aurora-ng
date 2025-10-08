@@ -36,6 +36,8 @@ dnf5 install -y \
     wl-clipboard \
     wlogout
 
+# copy custom dotconfig files into skel path for new users
+
 
 # disable the copr for building the image
 dnf5 -y copr disable solopasha/hyprland 

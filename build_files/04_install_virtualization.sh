@@ -8,6 +8,9 @@ set -ouex pipefail
 mkdir -p /etc/yum.repos.d
 cp /ctx/repo_files/docker-ce.repo /etc/yum.repos.d/
 
+# ensure Repo is temporarily enabled
+sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/docker-ce.repo
+
 # ublue-os packages
 dnf5 -y copr enable ublue-os/packages
 
@@ -47,6 +50,9 @@ dnf5 install -y \
 #disable copr packages
 dnf5 -y copr disable ublue-os/packages
 dnf5 -y copr disable gmaglione/podman-bootc
+
+# ensure Repo is disabled
+sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/docker-ce.repo
 
 # enable services
 systemctl enable podman.socket
