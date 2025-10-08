@@ -1,7 +1,7 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
-COPY /system_files /system_files
+COPY repo_files /
 
 # define base image
 FROM ghcr.io/ublue-os/aurora-asus-nvidia:latest
