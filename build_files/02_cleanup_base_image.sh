@@ -8,7 +8,7 @@ set -ouex pipefail
 dnf5 -y copr enable ublue-os/packages
 
 # install dev tools packages
-dnf5 autoremove -y \
+dnf5 remove -y \
 	ublue-brew
 
 
