@@ -5,7 +5,7 @@ COPY repo_files /repo_files
 COPY dotconfig_files /dotconfig_files
 
 # define base image
-FROM ghcr.io/ublue-os/aurora-asus-nvidia:latest
+FROM ghcr.io/ublue-os/aurora-nvidia:latest
 
 ARG AKMODS_FLAVOR="coreos-stable"
 ARG BASE_IMAGE_NAME="kinoite"
