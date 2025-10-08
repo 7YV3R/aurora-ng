@@ -37,7 +37,13 @@ dnf5 install -y \
     wlogout
 
 # copy custom dotconfig files into skel path for new users
-
+mkdir -p /etc/skel/.config
+cp -r /ctx/dotconfig_files/hypr /etc/skel/.config/
+cp -r /ctx/dotconfig_files/swaylock /etc/skel/.config/
+cp -r /ctx/dotconfig_files/swaync /etc/skel/.config/
+cp -r /ctx/dotconfig_files/waybar /etc/skel/.config/
+cp -r /ctx/dotconfig_files/wlogout /etc/skel/.config/
+cp -r /ctx/dotconfig_files/wofi /etc/skel/.config/
 
 # disable the copr for building the image
 dnf5 -y copr disable solopasha/hyprland 
