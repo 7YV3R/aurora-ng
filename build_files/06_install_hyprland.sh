@@ -39,7 +39,6 @@ dnf5 install -y \
 # copy custom dotconfig files into skel path for new users
 mkdir -p /etc/skel/.config
 cp -r /ctx/dotconfig_files/hypr /etc/skel/.config/
-cp -r /ctx/dotconfig_files/swaylock /etc/skel/.config/
 cp -r /ctx/dotconfig_files/swaync /etc/skel/.config/
 cp -r /ctx/dotconfig_files/waybar /etc/skel/.config/
 cp -r /ctx/dotconfig_files/wlogout /etc/skel/.config/
