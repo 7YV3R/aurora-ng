@@ -15,6 +15,7 @@ sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/vscodium.repo
 dnf5 install -y \
 	android-tools \
 	codium \
+	git \
 	python3 \
 	python3-pip \
 	python3-virtualenv

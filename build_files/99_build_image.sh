@@ -5,6 +5,9 @@ set -ouex pipefail
 ### Setup Image Information
 /ctx/00_image_info.sh
 
+### Cleanup base image
+/ctx/02_cleanup_base_image.sh
+
 ### Install packages
 
 # install extended system environment
