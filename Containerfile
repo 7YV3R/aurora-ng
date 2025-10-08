@@ -3,22 +3,27 @@ FROM scratch AS ctx
 COPY build_files /
 COPY /system_files /system_files
 
-# Base Image
+# define base image
 FROM ghcr.io/ublue-os/aurora-asus-nvidia:latest
 
-## Other possible base images include:
-# FROM ghcr.io/ublue-os/bazzite:latest
-# FROM ghcr.io/ublue-os/bluefin-nvidia:stable
-# 
-# ... and so on, here are more base images
-# Universal Blue Images: https://github.com/orgs/ublue-os/packages
-# Fedora base image: quay.io/fedora/fedora-bootc:41
-# CentOS base images: quay.io/centos-bootc/centos-bootc:stream10
+ARG AKMODS_FLAVOR="coreos-stable"
+ARG BASE_IMAGE_NAME="kinoite"
+ARG FEDORA_MAJOR_VERSION="41"
+ARG IMAGE_NAME="aurora"
+ARG IMAGE_VENDOR="ublue-os"
+ARG KERNEL="6.14.4-200.fc41.x86_64"
+ARG SHA_HEAD_SHORT="dedbeef"
+ARG UBLUE_IMAGE_TAG="stable"
+ARG VERSION=""
+ARG IMAGE_PRETTY_NAME="Aurora"
+ARG IMAGE_LIKE="fedora"
+ARG HOME_URL="https://getaurora.dev/"
+ARG DOCUMENTATION_URL="https://docs.getaurora.dev"
+ARG SUPPORT_URL="https://github.com/ublue-os/aurora/issues/"
+ARG BUG_SUPPORT_URL="https://github.com/ublue-os/aurora/issues/"
+ARG CODE_NAME="Stargazer"
 
-### MODIFICATIONS
-## make modifications desired in your image and install packages by modifying the build.sh script
-## the following RUN directive does all the things required to run "build.sh" as recommended.
-
+# building additional stuff on top of base image
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \

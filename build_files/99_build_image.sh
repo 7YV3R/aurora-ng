@@ -2,6 +2,9 @@
 
 set -ouex pipefail
 
+### Setup Image Information
+/ctx/00_image_info.sh
+
 ### Install packages
 
 #install custom development environment
