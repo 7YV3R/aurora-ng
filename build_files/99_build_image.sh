@@ -7,11 +7,14 @@ set -ouex pipefail
 
 ### Install packages
 
-#install custom development environment
-/ctx/04_install_development_environment.sh
+# install extended system environment
+/ctx/03_install_extended_system.sh
+
+# install virtualization and containerization environment
+/ctx/04_install_virtualization.sh
+
+# install custom development environment
+/ctx/05_install_dev_environment.sh
 
 # install hyprland
-/ctx/05_install_hyprland.sh
-
-systemctl enable podman.socket
-systemctl enable bolt.service
+/ctx/06_install_hyprland.sh

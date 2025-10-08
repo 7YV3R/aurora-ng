@@ -2,10 +2,11 @@
 
 set -ouex pipefail
 
-### Install custom development environment
+### Install virtualization/containerization environment
 
-# install prepared system files
-rsync -rvK /ctx/system_files/ /
+# install prepared repo files
+mkdir -p /etc/yum.repos.d
+cp /ctx/repo_files/docker-ce.repo /etc/yum.repos.d/
 
 # ublue-os packages
 dnf5 -y copr enable ublue-os/packages
@@ -15,27 +16,14 @@ dnf5 -y copr enable gmaglione/podman-bootc
 
 # install dev tools packages
 dnf5 install -y \
-	android-tools \
-	cockpit-bridge \
-	cockpit-machines \
-	cockpit-networkmanager \
-	cockpit-ostree \
-	cockpit-podman \
-	cockpit-selinux \
-	cockpit-storaged \
-	cockpit-system \
-	codium \
 	containerd.io \
 	docker-buildx-plugin \
 	docker-ce \
 	docker-ce-cli \
 	docker-compose-plugin \
 	edk2-ovmf \
-	iotop \
 	libvirt \
 	libvirt-nss \
-	osbuild-selinux \
-	p7zip \
 	podman-bootc \
 	podman-compose \
 	podman-machine \
@@ -50,7 +38,6 @@ dnf5 install -y \
 	qemu-system-x86-core \
 	qemu-user-binfmt \
 	qemu-user-static \
-	tiptop \
 	ublue-os-libvirt-workarounds \
 	virt-manager \
 	virt-v2v \
@@ -60,3 +47,7 @@ dnf5 install -y \
 #disable copr packages
 dnf5 -y copr disable ublue-os/packages
 dnf5 -y copr disable gmaglione/podman-bootc
+
+# enable services
+systemctl enable podman.socket
+systemctl enable docker.socket
